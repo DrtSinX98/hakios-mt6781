@@ -3,7 +3,7 @@
 HakiOS for the **realme 8i (spaced)**: MediaTek Helio G96 (**MT6781**), GPU **Mali-G57 MC2**, UFS.
 Started from [hakios-mt6768](https://github.com/oosexgang/hakios-mt6768) (Infinix Hot 20); its history is kept.
 
-**State: nothing works yet.** `mtkloader/`, `kernel/`, `tools/`, `docs/` and `pull-firmware.sh` are still the Hot 20's,
+**State: nothing works yet.** `mtkloader/`, `kernel/`, `tools/` and `docs/` are still the Hot 20's,
 unchanged; they are the starting point, not this phone's code.
 
 ## What differs from the Hot 20
