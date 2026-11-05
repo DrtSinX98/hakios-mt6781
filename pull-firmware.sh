@@ -13,9 +13,11 @@
 set -e
 S=${HAKIOS_SERIAL:?set HAKIOS_SERIAL to the serial of your phone, as adb devices shows it}
 # into the top of the HakiOS tree this repository is synced into (devices/spaced/), where mtk/loader looks; else (or with a
-# directory given) next to this repository's own mtkloader/
+# directory given) next to this repository's own mtkloader/. The top is cut from the path, not reached by ../..,
+# which would leave through the devices/spaced symlink
 HERE="$(cd "$(dirname "$0")" && pwd)"
-if [ -z "${1:-}" ] && [ -d "$HERE/../../mtk/loader" ]; then OUT="$(cd "$HERE/../.." && pwd)"; else OUT="${1:-$HERE}"; fi
+TOP="${HERE%/devices/*}"
+if [ -z "${1:-}" ] && [ -d "$TOP/mtk/loader" ]; then OUT="$TOP"; else OUT="${1:-$HERE}"; fi
 TMP=/data/local/tmp/hakios-fw
 CONNSYS="soc2_2_ram_mcu_2_1_hdr.bin soc2_2_ram_wifi_2_1_hdr.bin soc2_2_ram_bt_2_1_hdr.bin
 	WIFI_RAM_CODE_soc2_2_2_1.bin WMT_SOC.cfg BT_FW.cfg"
