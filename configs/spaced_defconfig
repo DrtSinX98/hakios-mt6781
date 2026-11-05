@@ -1,0 +1,5 @@
+# HakiOS defconfig for the realme 8i (spaced, MediaTek MT6781): the common kernel's configuration, the MT6781's layer
+# (mtk/mt6781/configs/mt6781.config in the common repository, branch mt6781) and this phone's own.
+#include common_defconfig
+#include mt6781.config
+#include spaced.config

@@ -5,12 +5,10 @@ and the rules that are not obvious from the code. Read it before changing anythi
 
 ## What this is
 
-HakiOS for the **Infinix Hot 20 (X6826B)**: MediaTek Helio G85 (MT6768), Mali-G52 MC2, eMMC, 6 GB of RAM (the kernel is given 4).
-Apple's open XNU kernel (xnu-8796.121.2) and iOS 16.5's unmodified user space, started by this
-phone's own loader. This is the device repository; the shared kernel, user space and Metal driver
-live in the organisation's common repositories (`hakios-xnu-kernel`, `hakios-metal`). Every other
-device in the organisation is Qualcomm: do not carry Qualcomm assumptions (UEFI, UFS, Adreno, SMMU,
-QMI) over to this phone.
+HakiOS for the **realme 8i (spaced)**: MediaTek Helio G96 (MT6781), Mali-G57 MC2, UFS. Forked from `hakios-mt6768`
+(Infinix Hot 20, MT6768, Mali-G52, eMMC): everything below except `configs/` and `device.conf` still describes the Hot 20,
+and its code is the starting point, not this phone's. Do not assume Hot 20 addresses, partitions (`boot_a`, eMMC) or chips
+(TD4160, Bifrost Mali) hold here; check them against this phone's device tree. Do not carry Qualcomm assumptions over either.
 
 ## Layout
 
@@ -18,7 +16,7 @@ QMI) over to this phone.
 | --- | --- | --- |
 | `mtkloader/` | bare-metal loader, runs with the MMU off before XNU | MIT |
 | `kernel/` | this phone's XNU drivers, as paths of the kernel tree (`kernel/README.md`) | APSL 2.0 |
-| `configs/` | `x6826b_defconfig`, `x6826b.config`: the kernel's configuration (its drivers: `hakios-xnu-kernel/mtk/mt6768/`) | MIT |
+| `configs/` | `spaced_defconfig`, `spaced.config`: the kernel's configuration (its SoC layer: `hakios-xnu-kernel/mtk/mt6781/`, branch `mt6781`) | MIT |
 | `tools/` | one run (`xnu-cycle.sh`), flashing, probes, log readers | MIT |
 | `docs/` | how each part was found, run by run | MIT |
 | `pull-firmware.sh` | the phone's firmware out of the user's own phone into `fw-*/` | MIT |
