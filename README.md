@@ -3,8 +3,10 @@
 HakiOS for the **realme 8i (spaced)**: MediaTek Helio G96 (**MT6781**), GPU **Mali-G57 MC2**, UFS.
 Started from [hakios-mt6768](https://github.com/oosexgang/hakios-mt6768) (Infinix Hot 20); its history is kept.
 
-**State: nothing works yet.** `mtkloader/`, `kernel/`, `tools/` and `docs/` are still the Hot 20's,
-unchanged; they are the starting point, not this phone's code.
+**State:** XNU boots Darwin 16.5's user space to SpringBoard's home screen, its root read off the UFS
+(`xnusys`, read only), then hands the phone back to Android in the same boot; the keys work, touch does not
+yet. `mtkloader/` and `kernel/bsd/dev/hakios.mt6781_*` are this phone's; the rest of `kernel/`, `tools/` and
+`docs/` are still the Hot 20's.
 
 ## What differs from the Hot 20
 
